@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>商品登録完了画面</title>
+</head>
+<body>
+<div th:insert="~{common/sourceList :: sourceList}"></div>
+<div th:replace="~{common/header :: header}"></div>
+
+  <div class="container-fluid">
+    <h2 class="mt-3">商品情報登録完了</h2>
+    <p><span th:text="${message}"></span></p>
+    <div class="mt-3">
+      <a th:href="@{/merchandiseList}">検索画面へ戻る</a>&nbsp;&nbsp;&nbsp;
+      <a th:href="@{/menu}">トップメニューへ戻る</a>
+    </div>
+  </div>
+</body>
+</html>

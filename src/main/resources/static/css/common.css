@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.table-row-active {
+    background-color: #c21d38 !important;
+}
+
+.actived-row-bgc {
+    background-color: #41c21d;
+}
+
+/*.highlighted-row {*/
+/*    background-color: #19265e; !* Change this to your desired highlight color *!*/
+/*}*/

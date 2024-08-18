@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>商品情報更新画面</title>
+</head>
+<body>
+  <div th:insert="~{common/sourceList :: sourceList}"></div>
+  <div th:replace="~{common/header :: header}"></div>
+  <div class="container-fluid">
+    <div th:insert="~{common/guideMessage :: guideMessage}"></div>
+    <h2 class="mt-3">商品情報更新</h2>
+    <form th:action="@{/merchandiseEdit}" method="post" th:object="${merchandiseEditForm}">
+      <div class="mt-3 form-group">
+        <table>
+          <tr>
+            <td><label>商品ID：</label></td>
+            <td>
+              <div class="row g-3 align-items-center">
+                <div class="col-9">
+                  <span th:text="${merchandiseEditForm.merchandiseId}"></span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="merchandiseName">商品名：</label></td>
+            <td>
+              <div class="row g-3 align-items-center">
+                <div class="col-9">
+                  <input type="text" class="form-control" th:value="${merchandiseEditForm.merchandiseName}" th:field="*{merchandiseName}">
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="unitPrice">単価：</label></td>
+            <td>
+              <div class="row g-3 align-items-center">
+                <div class="col-9">
+                  <input type="text" class="form-control" th:value="${merchandiseEditForm.unitPrice}" th:field="*{unitPrice}">
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="quantity">在庫数量：</label></td>
+            <td>
+              <div class="row g-3 align-items-center">
+                <div class="col-9">
+                  <input type="text" class="form-control" th:value="${merchandiseEditForm.quantity}" th:field="*{quantity}" >
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div class="mt-3">
+          <input type="submit" class="btn btn-primary" id="editBtn" name="update" value="編集">
+
+        </div>
+        <div class="mt-3">
+          <div class="mt-3">
+            <a th:href="@{/merchandiseDetail}">前画面へ戻る</a>&nbsp;&nbsp;&nbsp;
+            <a th:href="@{/menu}">トップメニューへ戻る</a>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</body>
+</html>

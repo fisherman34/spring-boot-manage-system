@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>商品情報検索画面</title>
+</head>
+<body>
+<div th:insert="~{common/sourceList :: sourceList}"></div>
+<div th:replace="~{common/header :: header}"></div>
+<div th:replace="~{common/messageIcon :: messageIcon}"></div>
+<script type="text/javascript" th:src="@{/js/merchandiseList.js}"></script>
+<div class="container-fluid">
+<!--  <div th:insert="~{common/guideMessage :: guideMessage}"></div>-->
+  <h2 class="mt-3">商品情報検索</h2>
+  <form th:action="@{/merchandiseList}" method="post" th:object="${merchandiseListForm}">
+    <div class="mt-1">
+      <table>
+        <tr>
+          <td><span>商品ID：</span></td>
+          <td>
+            <div class="row g-3 align-items-center">
+              <input type="text" class="form-control" th:field="*{merchandiseId}">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><span>商品名：</span></td>
+          <td>
+            <div class="row g-3 align-items-center">
+              <input type="text" class="form-control" th:field="*{merchandiseName}">
+            </div>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" class="btn btn-primary mt-3" name="search" value="検索">
+      <a class="btn btn-success mt-3" th:href="@{/merchandiseRegist}">新規登録</a>
+      <!-- 商品一覧画面 -->
+        <div class="mt-3">
+          <th:block th:unless="${#lists.isEmpty(merchandiseList)}">
+            <table class="table" id="merchandiseList">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">商品ID</th>
+                  <th scope="col">商品名</th>
+                  <th scope="col">単価</th>
+                  <th scope="col">在庫数量</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr th:each="merchandise, stat : ${merchandiseList}">
+                  <th scope="row"></th>
+                  <td th:id="|merchandiseId_${stat.count}|"><span th:text="${merchandise.merchandiseId}"></span></td>
+                  <td th:id="|merchandiseName_${stat.count}|"><span th:text="${merchandise.merchandiseName}"></span></td>
+                  <td th:id="|unitPrice_${stat.count}|"><span th:text="${#numbers.formatDecimal(merchandise.unitPrice, 1, 2)}"></span></td>
+                  <td th:id="|quantity_${stat.count}|"><span th:text="${merchandise.quantity}"></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <input type="text" th:field="*{selectedMerchandiseId}" hidden>
+            <input type="submit" class="btn btn-secondary" id="editBtn" name="detail" value="詳細情報表示" disabled>
+          </th:block>
+          <th:block th:if="${#lists.isEmpty(merchandiseList)}">
+            <div class="text-center">
+              <span>※対象の商品は存在しません。</span>
+            </div>
+          </th:block>
+        </div>
+
+        <!-- Pagination -->
+
+        <div class="d-flex justify-content-end mt-3">
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <!-- 首页 -->
+              <li class="page-item">
+                <a class="page-link" th:href="@{/merchandiseList(page=0, merchandiseId=${merchandiseListForm.merchandiseId}, merchandiseName=${merchandiseListForm.merchandiseName})}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0M4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5"/>
+                  </svg>
+                </a>
+              </li>
+              <!-- 上一页 -->
+              <li class="page-item">
+                <a class="page-link" th:href="@{/merchandiseList(page=${paginatedResponse.pageNumber > 0 ? paginatedResponse.pageNumber - 1 : 0}, merchandiseId=${merchandiseListForm.merchandiseId}, merchandiseName=${merchandiseListForm.merchandiseName})}" aria-label="Previous">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                  </svg>
+                </a>
+              </li>
+              <li class="page-item" th:each="i : ${#numbers.sequence(paginatedResponse.firstPagesForShow, paginatedResponse.lastPagesFowShow)}" th:classappend="${i == paginatedResponse.pageNumber} ? 'active'">
+                <a class="page-link" th:href="@{/merchandiseList(page=${i}, merchandiseId=${merchandiseListForm.merchandiseId}, merchandiseName=${merchandiseListForm.merchandiseName})}" th:text="${i + 1}"></a>
+              </li>
+              <!-- 下一页 -->
+              <li class="page-item">
+                <a class="page-link" th:href="@{/merchandiseList(page=${paginatedResponse.pageNumber >= paginatedResponse.totalPages - 1 ? paginatedResponse.pageNumber : paginatedResponse.pageNumber + 1}, merchandiseId=${merchandiseListForm.merchandiseId}, merchandiseName=${merchandiseListForm.merchandiseName})}" aria-label="Next">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                  </svg>
+                </a>
+              </li>
+              <!-- 尾页 -->
+              <li class="page-item">
+                <a class="page-link" th:href="@{/merchandiseList(page=${paginatedResponse.totalPages - 1 < 0 ? 0 : paginatedResponse.totalPages - 1}, merchandiseId=${merchandiseListForm.merchandiseId}, merchandiseName=${merchandiseListForm.merchandiseName})}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0M11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5"/>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+
+
+      <div class="mt-3">
+        <a th:href="@{/menu}">▶トップメニューへ戻る</a>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>
