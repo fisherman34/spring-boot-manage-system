@@ -4,32 +4,39 @@
   <meta charset="UTF-8">
   <title>ログイン画面</title>
 </head>
-<body>
+<body class="bg-body-secondary">
 <div th:insert="~{common/sourceList :: sourceList}"></div>
 <div th:replace="~{common/messageIcon :: messageIcon}"></div>
 <div class="container">
+  <div class="row">
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
   <div class="row justify-content-center my-5">
-    <div class="col-lg-6">
-      <h2>ログイン画面</h2>
+    <div class="w-100 m-auto px-4 form-signin bg-body">
+      <br>
+      <h1 class="h3 mb-3 fw-normal">ログイン画面</h1>
       <div th:insert="~{common/guideMessage :: guideMessage}"></div>
       <form th:action="@{/login}" method="post" th:object="${loginForm}">
         <div class="form-group">
-          <div class="col-2">
+          <div class="col-10">
             <label for="loginId">ログインID：</label>
-            <input class="form-control" type="text" th:field="*{loginId}">
+            <input class="form-control mt-1" type="text" th:field="*{loginId}">
           </div>
-          <div class="col-2">
+          <div class="col-10">
             <label for="password">パスワード：</label>
-            <input class="form-control" type="password" th:field="*{password}">
+            <input class="form-control mt-1" type="password" th:field="*{password}">
           </div>
-          <input class="btn btn-primary" type="submit" value="ログイン">
+          <div class="py-3">
+            <input class="btn btn-primary" type="submit" value="ログイン">
+          </div>
         </div>
       </form>
       <a th:href="@{/signup}">▶ユーザー登録はコチラ</a>
     </div>
   </div>
-
 </div>
-
 </body>
 </html>

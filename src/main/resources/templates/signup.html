@@ -4,33 +4,46 @@
   <meta charset="UTF-8">
   <title>ユーザー登録画面</title>
 </head>
-<body>
+<body class="bg-body-secondary">
 <div th:insert="~{common/sourceList :: sourceList}"></div>
 <div th:replace="~{common/messageIcon :: messageIcon}"></div>
-<div class="container-fluid">
-  <h2>ユーザー登録画面</h2>
-  <div th:insert="~{common/guideMessage :: guideMessage}"></div>
-  <form th:action="@{/signup}" method="post" th:object="${signupForm}">
-    <div class="form-group">
-      <div class="col-9 col-md-6 col-xxl-3">
-        <p><label for="loginId">ログインID：</label></p>
-        <input class="form-control" type="text" th:field="*{loginId}">
-        <span class="text-danger" th:if="${#fields.hasErrors('loginId')}" th:errors="*{loginId}"></span>
-      </div>
-      <div class="col-9 col-md-6 col-xxl-3">
-        <p><label for="password">パスワード：</label></p>
-        <input class="form-control" type="password" th:field="*{password}">
-        <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
-      </div>
-      <div class="col-9 col-md-6 col-xxl-3">
-        <p><label for="mailAddress">メールアドレス：</label></p>
-        <input type="text" class="form-control" th:field="*{mailAddress}">
-        <span class="text-danger" th:if="${#fields.hasErrors('mailAddress')}" th:errors="*{mailAddress}"></span>
-      </div>
-      <p><input type="submit" class="btn btn-primary"  value="ユーザー登録"></p>
+<div class="container">
+  <div class="row">
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="row justify-content-center my-5">
+    <div class="w-100 m-auto px-4 form-signin bg-body">
+      <br>
+      <h1 class="h3 mb-3 fw-normal">ユーザー登録画面</h1>
+      <div th:insert="~{common/guideMessage :: guideMessage}"></div>
+      <form th:action="@{/signup}" method="post" th:object="${signupForm}">
+        <div class="form-group">
+          <div class="col-10">
+            <label for="loginId">ログインID：</label>
+            <input class="form-control mt-1" type="text" th:field="*{loginId}">
+            <span class="text-danger" th:if="${#fields.hasErrors('loginId')}" th:errors="*{loginId}"></span>
+          </div>
+          <div class="col-10">
+            <label for="password">パスワード：</label>
+            <input class="form-control mt-1" type="password" th:field="*{password}">
+            <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+          </div>
+          <div class="col-10">
+            <label for="mailAddress">メールアドレス：</label>
+            <input type="text" class="form-control mt-1" th:field="*{mailAddress}">
+            <span class="text-danger" th:if="${#fields.hasErrors('mailAddress')}" th:errors="*{mailAddress}"></span>
+          </div>
+          <div class="py-3">
+            <input type="submit" class="btn btn-primary"  value="ユーザー登録">
+          </div>
+        </div>
+      </form>
+      <a th:href="@{/login}">▶ログイン画面へ戻る</a>
     </div>
-  </form>
-  <a th:href="@{/login}">▶ログイン画面へ戻る</a>
+  </div>
 </div>
 </body>
 </html>

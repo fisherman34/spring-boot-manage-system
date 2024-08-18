@@ -176,3 +176,6 @@
 2024-08-18T19:17:47.960+08:00  INFO 12609 --- [restartedMain] com.example.demo.SampleWebApplication    : Started SampleWebApplication in 3.092 seconds (process running for 529.462)
 2024-08-18T19:17:47.962+08:00  INFO 12609 --- [restartedMain] c.example.demo.data.SampleDataGenerator  : Loading Sample Data
 2024-08-18T19:17:47.963+08:00  INFO 12609 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-08-18T19:21:34.399+08:00  INFO 12609 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-18T19:21:34.406+08:00  INFO 12609 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-18T19:21:34.412+08:00  INFO 12609 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms

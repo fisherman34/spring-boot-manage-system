@@ -8,6 +8,15 @@
     background-color: #41c21d;
 }
 
+.form-signin {
+    max-height: 500px;
+    max-width: 330px;
+    padding: 1rem;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: #d8d8d8;
+}
+
 /*.highlighted-row {*/
 /*    background-color: #19265e; !* Change this to your desired highlight color *!*/
 /*}*/
