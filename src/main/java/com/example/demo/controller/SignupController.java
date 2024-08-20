@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.constant.*;
 import com.example.demo.dto.SignupInfo;
-import com.example.demo.entity.UserInfo;
 import com.example.demo.form.SignupForm;
 import com.example.demo.service.SignupService;
 import com.example.demo.util.AppUtil;

@@ -62,6 +62,6 @@ public class SignupConfirmController {
     }
 
     session.removeAttribute(SessionKeyConst.ONE_TIME_AUTH_LOGIN_ID);
-    return AppUtil.doRedirect(UrlConst.SIGNUP_COMPLETION);
+    return AppUtil.doRedirect(UrlConst.SIGNUP_COMPLETION_ALT);
   }
 }

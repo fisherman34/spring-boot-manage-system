@@ -2,7 +2,6 @@ package com.example.demo.util;
 
 import com.example.demo.constant.db.AuthorityKind;
 import com.example.demo.constant.db.UserStatusKind;
-import com.example.demo.dto.MerchandiseListInfo;
 import com.example.demo.dto.PaginatedResponse;
 import org.springframework.context.MessageSource;
 

@@ -14,7 +14,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum SignupConfirmStatus {
 
-  /* 本更新成功 */
+  /* 本登録成功 */
   SUCCEED(MessageConst.SIGNUP_CONFIRM_COMPLETE),
 
   /* 仮登録状態のユーザーが存在しない */

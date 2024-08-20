@@ -126,6 +126,7 @@
                     <target>17</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
+
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

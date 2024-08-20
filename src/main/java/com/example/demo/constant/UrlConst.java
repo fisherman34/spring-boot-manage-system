@@ -23,6 +23,8 @@ public class UrlConst {
   /** ユーザー登録情報確認結果画面 */
   public static final String SIGNUP_COMPLETION = "/signupCompletion";
 
+  public static final String SIGNUP_COMPLETION_ALT = "/signupCompletionAlt";
+
   /** メニュー画面 */
   public static final String MENU = "/menu";
 
@@ -55,5 +57,5 @@ public class UrlConst {
 
   /** 認証不要画面 */
   public static final String[] NO_AUTHENTICATION = { LOGIN, SIGNUP, SIGNUP_CONFIRM, SIGNUP_COMPLETION,
-          "/webjars/**", "/css/**" };
+          SIGNUP_COMPLETION_ALT, "/webjars/**", "/css/**", "/js/**"};
 }
