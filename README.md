@@ -57,5 +57,4 @@ Spring Bootで作られる商品管理システム、デモウェブサイトの
 
 **商品管理画面**
 
-https://raw.githubusercontent.com/fisherman34/image-hosting-repository/main/picture/product.mp4
-
+https://github.com/user-attachments/assets/18e6bfce-54a4-4400-ac02-3847935f9cd1
