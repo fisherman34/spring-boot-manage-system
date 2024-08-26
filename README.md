@@ -57,6 +57,7 @@ Spring Bootで作られる商品管理システム、デモウェブサイトの
 
 **商品管理画面**
 
-<video src='blob/product.mp4'/>
+<video controls>
+  <source src="blob/product.mp4" type="video/mp4">
+</video>
 
-![](blob/product.mp4)
