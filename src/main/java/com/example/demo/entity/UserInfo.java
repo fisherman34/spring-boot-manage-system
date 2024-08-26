@@ -34,7 +34,7 @@ public class UserInfo {
   @Column(name = "mail_address")
   private String mailAddress;
 
-  /** リンクタイムコード */
+  /** ワンクタイムコード */
   @Column(name = "one_time_code")
   private String oneTimeCode;
 
