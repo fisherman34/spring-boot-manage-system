@@ -57,7 +57,5 @@ Spring Bootで作られる商品管理システム、デモウェブサイトの
 
 **商品管理画面**
 
-<video width="1364" height="640" controls>
-  <source src="raw.githubusercontent.com/fisherman34/image-hosting-repository/main/picture/product.mp4" type="video/mp4">
-</video>
+https://raw.githubusercontent.com/fisherman34/image-hosting-repository/main/picture/product.mp4
 
