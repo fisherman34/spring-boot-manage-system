@@ -1,10 +1,10 @@
 # Spring Boot勉強用リポジトリ
 Spring Bootで作られる商品管理システム、デモウェブサイトのアドレスは<a href="https://manage.651532.xyz/login"> https://manage.651532.xyz/login </a> です。アカウントは user0003、パスワードは abc12345 です。
 
-## 紹介
+## 1. 紹介
 商品、顧客管理(登録/更新/削除/一覧)ができる、商品管理システムWebアプリを作成します。
 
-### 利用技術
+### 1.1 利用技術
 **Spring Boot**  
 &nbsp;&nbsp;&nbsp;&nbsp;Webアプリ等を簡単に作成できるJavaのフレームワーク。  
 **Thymeleaf**  
@@ -15,6 +15,8 @@ Spring Bootで作られる商品管理システム、デモウェブサイトの
 &nbsp;&nbsp;&nbsp;&nbsp;ビルドツール。  
 **MySQL**  
 &nbsp;&nbsp;&nbsp;&nbsp;オープンソースのデータベース。
+
+## 2. DB設計
 
 **テーブル一覧**  
 
@@ -53,7 +55,7 @@ Spring Bootで作られる商品管理システム、デモウェブサイトの
 | 6  |    update_time     | 最終更新日時 |
 | 7  |    update_user     | 最終更新ユーザー     |
 
-### 完成画面キャプチャ
+## 3. 完成画面キャプチャ
 
 **商品管理画面**
 
