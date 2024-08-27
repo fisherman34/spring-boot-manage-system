@@ -1,5 +1,5 @@
 # Spring Boot勉強用リポジトリ
-Spring Bootで作られる商品管理システム、デモウェブサイトのアドレスは<a href="https://manage.651532.xyz/login"> https://manage.651532.xyz/login </a> です。アカウントは user0003、パスワードは abc12345 です。
+Spring Bootで作られる商品管理システム、デモウェブサイトのアドレスは<a href="https://manage.651532.xyz/login"> https://manage.651532.xyz/login </a> です。デモアカウントは user0003、パスワードは abc12345 です。
 
 ## 1. 紹介
 商品、顧客管理(登録/更新/削除/一覧)ができる、商品管理システムWebアプリを作成します。
